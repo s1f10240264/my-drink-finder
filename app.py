@@ -78,6 +78,18 @@ def recommend_drinks(preferences):
 def home():
     return render_template('index.html')
 
+@app.get('/privacy')
+def privacy_page():
+    return render_template('privacy.html')
+
+@app.get('/about-site')
+def about_site_page():
+    return render_template('about_site.html')
+
+@app.get('/contact')
+def contact_page():
+    return render_template('contact.html')
+
 @app.post('/api/recommend')
 def recommend():
     payload=request.get_json(silent=True)
