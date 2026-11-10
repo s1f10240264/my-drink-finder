@@ -20,6 +20,14 @@ function renderLibrary(){
  const get=id=>document.getElementById(id).value;
  const q=get('library-search').trim().toLowerCase(), kind=get('filter-kind'), sweet=get('filter-sweet'), temp=get('filter-temp'), origin=get('filter-origin');
  const budget=get('filter-budget'), cal=get('filter-cal'), fee=get('filter-free');
+ const hasConditions=Boolean(q)||[kind,sweet,temp,origin,budget,cal,fee].some(v=>v!=='all');
+ if(!hasConditions){
+  parent.replaceChildren();
+  document.querySelector('#library-count').textContent='好きな条件を1つ以上選ぶと、おすすめカスタムが表示されるよ ♡';
+  parent.hidden=true;
+  return;
+ }
+ parent.hidden=false;
  const matches=catalog.filter(d=>{
   if(![d.name,d.custom,d.notes,...d.tags].join(' ').toLowerCase().includes(q))return false;
   if(kind!=='all'&&d.kind!==kind)return false;
