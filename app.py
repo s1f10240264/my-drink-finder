@@ -78,6 +78,14 @@ def recommend_drinks(preferences):
 def home():
     return render_template('index.html')
 
+@app.get('/customs')
+def customs_page():
+    return render_template('customs.html')
+
+@app.get('/cafe-tools')
+def cafe_tools_page():
+    return render_template('cafe_tools.html')
+
 @app.get('/privacy')
 def privacy_page():
     return render_template('privacy.html')
