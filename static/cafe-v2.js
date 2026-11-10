@@ -60,5 +60,5 @@ $('pair-mode')?.addEventListener('change',showPairControls);
 ['pair-drink','pair-food','pair-coffee'].forEach(id=>$(id)?.addEventListener('change',renderPair));
 $('cal-drink')?.addEventListener('change',renderCalories);
 $('cal-change')?.addEventListener('change',renderCalories);
-showPairControls();renderCalories();
+showPairControls();if($('cal-drink'))renderCalories();
 })();
